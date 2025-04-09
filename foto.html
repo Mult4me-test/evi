@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everest - Фотоальбомы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <button class="hamburger">☰</button>
+            <div class="logo-section">
+                <img src="images/logo.png" alt="Everest Logo" class="logo">
+                <h1 class="site-title">EVEREST<br><span class="subtitle">Фотоальбомы</span></h1>
+            </div>
+            
+            <div class="contacts">
+                <div class="contact-item">
+                    <img src="images/email-icon.svg" alt="Email" class="contact-icon">
+                    everest@evi-pomsky.ru
+                </div>
+                <div class="contact-item">
+                    <img src="images/phone-icon.svg" alt="Phone" class="contact-icon">
+                    +7 921 58 22 0 33
+                </div>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" rel="noopener">
+                        <img src="images/instagram-icon.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="https://dzen.ru" target="_blank" rel="noopener">
+                        <img src="images/dzen-icon.svg" alt="Dzen" class="social-icon">
+                    </a>
+                    <a href="https://telegram.org" target="_blank" rel="noopener">
+                        <img src="images/telegram-icon.svg" alt="Telegram" class="social-icon">
+                    </a>
+                    <a href="https://vk.com" target="_blank" rel="noopener">
+                        <img src="images/vk-icon.svg" alt="VK" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item active">Фото</li>
+                <li class="nav-item"><a href="articles.html">Статьи</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="photo-gallery">
+        <div class="gallery-grid">
+            <a href="album1.html" class="album-card">
+                <img src="images/album1-thumb.jpg" alt="Зимние приключения" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Зимние приключения</h3>
+                </div>
+            </a>
+
+            <a href="album2.html" class="album-card">
+                <img src="images/album2-thumb.jpg" alt="Летние деньки" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Летние деньки</h3>
+                </div>
+            </a>
+
+            <a href="album3.html" class="album-card">
+                <img src="images/album3-thumb.jpg" alt="Игры с друзьями" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Игры с друзьями</h3>
+                </div>
+            </a>
+
+            <a href="album4.html" class="album-card">
+                <img src="images/album4-thumb.jpg" alt="Дрессировка" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Дрессировка</h3>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('.nav-list');
+
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navList.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-container') && 
+                    !e.target.closest('.hamburger')) {
+                    navList.classList.remove('active');
+                }
+            });
+
+            navList.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    navList.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

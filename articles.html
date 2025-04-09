@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи об Pomsky Everest и не только</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <button class="hamburger">☰</button>
+            <div class="logo-section">
+                <img src="images/logo.png" alt="Everest Logo" class="logo">
+                <h1 class="site-title">EVEREST<br><span class="subtitle">Статьи</span></h1>
+            </div>
+            
+            <div class="contacts">
+                <div class="contact-item">
+                    <img src="images/email-icon.svg" alt="Email" class="contact-icon">
+                    everest@evi-pomsky.ru
+                </div>
+                <div class="contact-item">
+                    <img src="images/phone-icon.svg" alt="Phone" class="contact-icon">
+                    +7 921 58 22 0 33
+                </div>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" rel="noopener">
+                        <img src="images/instagram-icon.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="https://dzen.ru" target="_blank" rel="noopener">
+                        <img src="images/dzen-icon.svg" alt="Dzen" class="social-icon">
+                    </a>
+                    <a href="https://telegram.org" target="_blank" rel="noopener">
+                        <img src="images/telegram-icon.svg" alt="Telegram" class="social-icon">
+                    </a>
+                    <a href="https://vk.com" target="_blank" rel="noopener">
+                        <img src="images/vk-icon.svg" alt="VK" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="foto.html">Фото</a></li>
+                <li class="nav-item active">Статьи</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Статьи</h2>
+                <p>Эта страница находится в разработке. Скоро здесь появятся интересные материалы!</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('.nav-list');
+
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navList.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-container') && 
+                    !e.target.closest('.hamburger')) {
+                    navList.classList.remove('active');
+                }
+            });
+
+            navList.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    navList.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
